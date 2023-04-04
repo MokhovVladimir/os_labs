@@ -1,9 +1,0 @@
----
-- name: Install EPEL Repo
-  hosts: webservers
-  become: true
-  tasks:
-   - name: Install EPEL Repo package from standard repo
-     yum:
-        name: epel-release
-        state: present
