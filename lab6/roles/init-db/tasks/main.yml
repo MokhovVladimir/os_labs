@@ -15,14 +15,18 @@
 
 - name: Check initialized database
   stat:
-    path: "{{ postgres_data_dir }}/PG_VERSION"
+    path: "/var/lib/pgsql/14/data/PG_VERSION"
   register: pgversion
 
 - name: Postgres Pro initdb
   ansible.builtin.shell: "postgresql-14-setup initdb"
   when: not pgversion.stat.exists
-  notify:
-    - Start and enable postgresql-service
+
+- name: Start and enable postgresql-service
+  ansible.builtin.systemd:
+    name: postgresql-14.service
+    state: restarted
+    enabled: true
 
 - name: Create db
   ansible.builtin.shell: "psql -f /tmp/small.sql -U postgres"

@@ -1,12 +1,7 @@
 ---
 # handlers file for init-db
-- name: Init_database
-  ansible.builtin.shell: "postgresql-14-setup initdb"
-  become_user: root
-  tags: 
-    - init-db
 
-- name: Start_and_enable_postgresql-service
+- name: Start and enable postgresql-service
   ansible.builtin.systemd:
     name: postgresql-14.service
     state: restarted
