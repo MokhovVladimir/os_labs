@@ -12,7 +12,6 @@
     name: 
       - postgresql14-server
     state: latest
-  notify: Init database
 
 - name: Check initialized database
   stat:
