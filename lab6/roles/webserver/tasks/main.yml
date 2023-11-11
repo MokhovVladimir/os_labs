@@ -13,12 +13,13 @@
 
 - name: Template a file to "{{ path_to_doc }}/{{ docs_name }}"
   ansible.builtin.template:
-    src: index.html.j2
+    src: index.php.j2
     dest: "{{ path_to_doc }}/{{ docs_name }}"
     owner: root
     group: root
   tags:
     - web
+    - html
 
 - name: Template a file to /etc/nginx/nginx.conf
   ansible.builtin.template:
@@ -42,13 +43,13 @@
   tags:
     - web
 
-- name: Template a file to /usr/share/nginx/html/nginx.html
-  ansible.builtin.template:
-    src: index.html.j2
-    dest: /usr/share/nginx/html/index.html
-    owner: root
-    group: root
-  notify:
-    - Start and enabled nginx and php
-  tags:
-    - web
+# - name: Template a file to /usr/share/nginx/html/index.php
+#   ansible.builtin.template:
+#     src: index.php.j2
+#     dest: /usr/share/nginx/html/index.php
+#     owner: root
+#     group: root
+#   notify:
+#     - Start and enabled nginx and php
+#   tags:
+#     - web

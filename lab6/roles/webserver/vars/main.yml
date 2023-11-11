@@ -2,6 +2,7 @@
 ### Webserver
 nginx_port: 8080
 php_port: 9000
-db_request: "SELECT * FROM bookings.aircrafts"
+db_request: "select * from bookings.airports_data order by airport_code"
 path_to_doc: /usr/share/nginx/html
 docs_name: index.php
+password_db_user: 123

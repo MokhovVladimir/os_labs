@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PostgreSQL SELECT</title>
+<h1> PostgreSQL SELECT </h1>
+</head>
+<body>
+<form name="insert" action="insert.php" method="POST" >
+    <li>City ru:</li><li><input type="text" name="city_ru" /></li>
+    <li>City en:</li><li><input type="text" name="city_en" /></li>
+    <li>Time zone:</li><li><input type="text" name="timezone" /></li>
+    <li>airport_code:</li><li><input type="text" name="airport_code" /></li>
+    <li><input type="submit" /></li>
+</form>
+    <?php
+        $db = pg_connect("host=192.168.11.90 port=5432 dbname=small user=postgres password={{ password_db_user }}");
+	pg_query($db, "insert into bookings.airports_data (airport_code, airport_name, city, coordinates, timezone) values ('$_POST[airport_code]',
+         '{\"en\": \"$_POST[city_en]\", \"ru\": \"$_POST[city_ru]\"}', '{\"en\": \"$_POST[city_en]\", \"ru\": \"$_POST[city_ru]\"}', '(129.77099609175,62.093299865722616)', '$_POST[timezone]')");
+        $result = pg_query($db, "{{ db_request }}");
+        echo "<table border='1'>";
+        while ($row = pg_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td align='center'> " . $row['airport_code'] . "</td>";
+            echo "<td align='center'> " . $row['airport_name'] . "</td>";
+            echo "<td align='center'> " . $row['city'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    ?>
+
+</body>
+</html>
