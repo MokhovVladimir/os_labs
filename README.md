@@ -11,5 +11,5 @@
 ### Создание скрипта для настройки системы повышенной отказаустойчивости (haproxy + keepalived)
 [Лабораторная работа 3](https://github.com/MokhovVladimir/os_labs/tree/master/lab3)
 
-### Создание денамического web сервера (nginx + php)
+### Создание динамического web сервера (nginx + php)
 [Лабораторная работа 6](https://github.com/MokhovVladimir/os_labs/tree/master/lab6)
