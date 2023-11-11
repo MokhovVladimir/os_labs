@@ -42,14 +42,3 @@
     - Start and enabled nginx and php
   tags:
     - web
-
-# - name: Template a file to /usr/share/nginx/html/index.php
-#   ansible.builtin.template:
-#     src: index.php.j2
-#     dest: /usr/share/nginx/html/index.php
-#     owner: root
-#     group: root
-#   notify:
-#     - Start and enabled nginx and php
-#   tags:
-#     - web
