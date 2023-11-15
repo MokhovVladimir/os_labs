@@ -1,0 +1,45 @@
+---
+# tasks file for webserver
+- name: Copy node_exporter
+  copy:
+    src: node_exporter
+    dest: /usr/local/bin/
+  tags: 
+    - node
+
+- name: Ensure group nodeusr
+  ansible.builtin.group:
+    name: nodeusr
+    state: present
+  tags: 
+    - node
+
+- name: Add the user nodeusr
+  ansible.builtin.user:
+    name: nodeusr
+    group: nodeusr
+    shell: /usr/bash
+    append: true
+  tags: 
+    - node
+
+- name: Change node_exporter ownership, group and permissions
+  ansible.builtin.file:
+    path: /usr/local/bin/node_exporter
+    owner: root
+    group: root
+    mode: '0777'
+  tags: 
+    - mode
+    - node
+
+- name: Make node_exporter.service 
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system
+  notify: 
+    - Start and enabled node_exporter
+  tags: 
+    - node
+    - mode
+

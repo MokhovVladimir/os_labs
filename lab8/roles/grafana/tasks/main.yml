@@ -1,0 +1,11 @@
+---
+# tasks file for webserver
+- name: Install the latest version of grafana
+  ansible.builtin.dnf:
+    name: 
+      - grafana
+    state: latest
+  notify: 
+    - Start and enabled grafana
+  tags: 
+    - grafana

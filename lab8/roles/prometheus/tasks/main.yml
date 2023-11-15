@@ -1,0 +1,23 @@
+---
+# tasks file for init-db
+
+- name: Install the latest version of prometheus
+  ansible.builtin.dnf:
+    name: 
+      - golang-github-prometheus
+    state: latest
+  notify:
+    - Start and enable prometheus-service
+  tags: 
+    - prometheus
+
+- name: Template a file to "/etc/prometheus/prometheus.yml"
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: "/etc/prometheus/prometheus.yml"
+    owner: root
+    group: root
+  notify:
+    - Start and enable prometheus-service
+  tags: 
+    - prometheus

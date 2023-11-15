@@ -1,0 +1,23 @@
+- name: Disable selinux
+  hosts: all
+  become: true
+  roles: 
+    - selinux-disabled
+
+- name: Configurate Prometheus server
+  hosts: prometheus
+  become: yes
+  roles: 
+    - prometheus
+
+- name: nodeexporter
+  hosts: nodeexporter
+  become: true
+  roles: 
+    - nodeexporter
+
+- name: grafana
+  hosts: grafana
+  become: true
+  roles: 
+    - grafana

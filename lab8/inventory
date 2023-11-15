@@ -1,0 +1,6 @@
+[grafana]
+grafana ansible_host=192.168.11.70
+[nodeexporter]
+nodeexporter ansible_host=192.168.11.80 
+[prometheus]
+prometheus ansible_host=192.168.11.90 

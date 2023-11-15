@@ -1,0 +1,7 @@
+---
+# handlers file for webserver
+- name: Start and enabled grafana
+  ansible.builtin.systemd:
+    name: grafana-server
+    state: restarted
+    enabled: true
