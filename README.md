@@ -13,3 +13,9 @@
 
 ### Создание динамического web сервера (nginx + php)
 [Лабораторная работа 6](https://github.com/MokhovVladimir/os_labs/tree/master/lab6)
+
+### Создание docker-image и docker-compose (nginx + php)
+[Лабораторная работа 7](https://github.com/MokhovVladimir/os_labs/tree/master/lab7)
+
+### Создание кластера сбора метрик prometheus
+[Лабораторная работа 8](https://github.com/MokhovVladimir/os_labs/tree/master/lab8)
