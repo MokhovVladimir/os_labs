@@ -17,5 +17,5 @@
 ### Создание docker-image и docker-compose (nginx + php)
 [Лабораторная работа 7](https://github.com/MokhovVladimir/os_labs/tree/master/lab7)
 
-### Создание кластера сбора метрик prometheus
+### Создание кластера сбора метрик prometheus (prometheus (бд) + node_exporter (сборы метрик) + grafanf (web))
 [Лабораторная работа 8](https://github.com/MokhovVladimir/os_labs/tree/master/lab8)
